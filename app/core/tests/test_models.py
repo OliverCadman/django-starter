@@ -12,7 +12,7 @@ class UserTests(TestCase):
         password = 'testpass123'
 
         user = get_user_model().objects.create_user(
-            username=username, email=email, password=password
+             email=email, password=password
         )
 
         self.assertTrue(user.check_password(password))
@@ -21,7 +21,6 @@ class UserTests(TestCase):
     def test_normalize_email(self):
         """Test emails are normalized when user created"""
 
-        username = 'testuser'
         password = 'testpass123'
 
         test_emails = [
@@ -31,9 +30,9 @@ class UserTests(TestCase):
             ('test4@example.COM', 'test4@example.com')
         ]
 
-        for i, (email, expected) in enumerate(test_emails):
+        for email, expected in test_emails:
             user = get_user_model().objects.create_user(
-                username=f'test_user_{i}', email=email, password=password
+                 email=email, password=password
             )
 
             self.assertEqual(user.email, expected)
@@ -43,7 +42,6 @@ class UserTests(TestCase):
 
         with self.assertRaises(ValueError):
             get_user_model().objects.create_user(
-                username='',
                 email='',
                 password='testpass123'
             )
