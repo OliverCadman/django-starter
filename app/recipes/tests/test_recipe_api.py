@@ -16,11 +16,11 @@ from recipes.serializers import (
 )
 
 
-RECIPES_URL = reverse('recipes:recipe-list')
+RECIPES_URL = reverse('recipe:recipe-list')
 
 def detail_url(recipe_id):
     """Get a url for a given recipe"""
-    return reverse('recipes:recipe-detail', args=[recipe_id])
+    return reverse('recipe:recipe-detail', args=[recipe_id])
 
 
 def create_recipe(user, **params):

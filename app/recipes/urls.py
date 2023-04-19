@@ -9,7 +9,7 @@ from rest_framework.routers import DefaultRouter
 router = DefaultRouter()
 router.register('recipes', views.RecipeViewset)
 
-app_name = 'recipes'
+app_name = 'recipe'
 
 urlpatterns = [
     path('', include(router.urls))
